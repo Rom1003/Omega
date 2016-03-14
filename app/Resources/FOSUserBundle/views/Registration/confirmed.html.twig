@@ -1,0 +1,19 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+<script type="text/javascript">
+function redir(){
+self.location.href="../login"
+}
+setTimeout(redir,10000)
+</script>
+
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+        <p>Vous allez être redirigé vers la page de connexion d'ici quelques secondes...</p>
+    {% if targetUrl %}
+    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+
+    {% endif %}
+{% endblock fos_user_content %}

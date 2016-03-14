@@ -1,0 +1,49 @@
+{% extends 'siteBundle::base.html.twig' %}
+{% block titre_page %}<h1>Accueil</h1><hr>{% endblock %}
+{% block contenu %}
+    
+        <div class="col-lg-6 rubrique" id="cour1">
+            <a href="#">
+            <img src="{{asset('images/cour1.jpg')}}" class="img-responsive" alt="">
+            <p class="titre">Derniers cours publiés</p>
+            <p class="text">Retrouvez les derniers cours publiés récement facilitant votre avancé sur le site.</p>
+            </a>
+        </div>
+       
+        <div class="col-lg-5 col-lg-offset-1 cour2 rubrique" id="cour2">
+            <a href="#">
+            <img src="{{asset('images/cour2.jpg')}}" class="img-responsive" alt="">
+            <p class="titre">Mes cours favoris</p>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </a>
+        </div>
+    
+    
+        <div class="col-lg-3 video rubrique" id="video">
+            <a href="#">
+            <img src="{{asset('images/video.jpg')}}" class="img-responsive" alt="">
+            <p class="titre">Cours avec vidéos</p>
+            <p class="text">Retrouvez tous les cours contenant une vidéo offrant une nouvelle aproche en termes d'apprentissage.</p>
+            </a>
+        </div>
+    
+    
+        <div class="col-lg-8 eval rubrique" id="eval">
+             <a href="#">            
+            <img src="{{asset('images/eval.jpg')}}" class="img-responsive" alt="">
+            <p class="titre">Accéder à mon profil</p>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </a>
+        </div>
+    
+{% endblock %}

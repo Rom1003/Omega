@@ -1,0 +1,82 @@
+{% extends 'siteBundle::base.html.twig' %}
+{% block filtre %}
+<!--<div class="col-lg-10 col-sm-9" id="filtre">
+<div class="col-sm-2">
+	<ul id="menu">
+		<li><a href="#">FILTRER PAR<span class="caret"></span></a>
+		    <ul>
+		        <p>Cours</p>
+		        <form action="">
+		            <div class="col-lg-12 col-md-6 col-sm-3">
+		            <li><input type="checkbox" />Anglais</li>
+		            <li><input type="checkbox" />Communication</li>
+		            <li><input type="checkbox" />Esthétique</li>
+		            <li><input type="checkbox" />Métiers nuériques</li>
+		            <li><input type="checkbox" />Conduite de projet</li>
+		            <li><input type="checkbox" />PPP</li>
+		            <li><input type="checkbox" />Environnement juridique</li>
+		            <li><input type="checkbox" />Culture scientifique</li>
+		            <li><input type="checkbox" />Développement</li>
+		            <li><input type="checkbox" />Programmation orienté objet</li>
+		            <li><input type="checkbox" />Réseau</li>
+		            <li><input type="checkbox" />Infographie</li>
+		            <li><input type="checkbox" />Intégraption</li>
+		            <li><input type="checkbox" />Audiovisuel</li>
+		            <li><input type="checkbox" />PHP</li>
+		            <br>
+		            <p>Evaluation</p>
+		            <li><input type="checkbox" />Quizz</li>
+		            <li><input type="checkbox" />Exercices</li>
+		            <li><input type="checkbox" />Exercices corrigés</li>
+		            <br>
+		            <p>Semestres</p>
+		            <div class="col-xs-6">
+		            <li><input type="checkbox" />S1</li>
+		            <li><input type="checkbox" />S2</li>
+		            <li><input type="checkbox" />S3</li>
+		            <li><input type="checkbox" />S4</li>
+		            </div>
+		            <div class="col-xs-6">
+		            <li><input type="checkbox" />S1D</li>
+		            <li><input type="checkbox" />S2D</li>
+		            <li><input type="checkbox" />S3D</li>
+		            <li><input type="checkbox" />S4D</li>
+		        </form>
+		    </ul>
+		</li>
+	</ul>
+</div>
+<div class="col-sm-10"></div>                  
+</div>-->
+<div class="col-lg-10 col-sm-9" id="filtre">
+    <div class="col-sm-2">
+    <ul class="nav nav-pills nav-stacked">
+	    <li class="dropdown">
+	        <a class="dropdown-toggle" data-toggle="dropdown" href="#">FILTRER PAR
+	            <span class="caret"></span></a>
+	        <ul class="dropdown-menu">
+	            <li><a href="#">Ajouter</a></li>
+	            <li><a href="#">Editer</a></li>
+	            <li><a href="#">Supprimer</a></li>
+	        </ul>
+	    </li>          
+    </ul>
+    </div>
+    <div class="col-sm-10"></div>                  
+</div>
+{% endblock %} 
+{% block titre_page %}<h1>Liste des cours</h1><hr>{% endblock %}   
+{% block contenu %}
+{% for cour in cours %}
+    <div class="col-lg-12 cours">
+	        <div class="col-lg-8">
+	        <h2>{{ cour.intitulecours }}</h2>
+	        <p><b>Publié le: {{ cour.datedcours|date('d M Y') }} / Prendra fin le: {{ cour.datefcours|date('d M Y') }}</b></p>
+	        <p>{{ cour.introcours }}</p>
+	    	</div>
+	        <div class="col-lg-4"><img src="{{ cour.imagecours }}" class="img-responsive center-block">
+	        </div>
+    </div>
+
+{% endfor %}
+{% endblock %}

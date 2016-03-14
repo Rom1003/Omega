@@ -1,0 +1,23 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block titre_page %}<h1>Profil de {{app.user.username}}</h1><hr>{% endblock %}   
+
+    <div class="col-lg-12" id="navigation">
+    	<div class="col-sm-1"></div>
+    	<div class="col-lg-2"><a href="#" id="profil"><button class="btn-profil">Mon profil</button></a></div>
+    	<div class="col-lg-2"><a href="#" id="avancement"><button class="btn-profil">Avancement de mes cours</button></a></div>
+    	<div class="col-lg-2"><a href="#" id="favoris"><button class="btn-profil">Mes cours favoris</button></a></div>
+    	<div class="col-lg-2"><a href="#" id="commentaires"><button class="btn-profil">Mes derniers commentaires</button></a></div>
+    	<div class="col-lg-2"><a href="#" id="resultats"><button class="btn-profil">Mes résultats d'évaluations</button></a></div>
+    	<div class="col-sm-1"></div>
+    </div>
+
+
+
+    <div class="col-lg-12" id="profil_contenu">
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <p><a href="{{ path('fos_user_resetting_request') }}">Mofifier votre mot de passe ?</a></p>
+    </div>
+
+
+

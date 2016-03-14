@@ -1,0 +1,4 @@
+cours_liste:
+    path:     /cours
+    defaults: { _controller: CoursBundle:Default:index }
+
