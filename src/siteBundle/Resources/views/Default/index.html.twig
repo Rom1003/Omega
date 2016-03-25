@@ -3,10 +3,12 @@
 {% block contenu %}
     
         <div class="col-lg-6 rubrique" id="cour1">
-            <a href="#">
+            <a href="{{ path('cours_chapitres', {'idCours': lastcours.id, 'order': '1'})}}">
             <img src="{{asset('images/cour1.jpg')}}" class="img-responsive" alt="">
             <p class="titre">Derniers cours publiés</p>
-            <p class="text">Retrouvez les derniers cours publiés récement facilitant votre avancé sur le site.</p>
+            <p class="text">{{ lastcours.intitulecours }}<br>
+                            {{ lastcours.introcours }}
+            </p>
             </a>
         </div>
        

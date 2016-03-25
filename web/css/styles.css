@@ -416,13 +416,13 @@ section .col-lg-12, section .col-lg-11, section .col-lg-10, section .col-lg-9,se
   color: #ffffff;
   font-weight: bold;
   font-size: 18px;
-  background: #d4d4d4;
+  background: #005d7f;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 }
 .btn-profil:hover {
 transition: all .4s ease;
-  background: #005d7f;
+  background: #d4d4d4;
   text-decoration: none;
 }
 
@@ -544,3 +544,39 @@ vertical-align: -webkit-baseline-middle;}
 }
 .cours h2{color: #0a6d8a;}
 .cours .col-lg-4 img{width: 50%;}
+
+/*date*/
+#date p{float: right;}
+
+/*suivi*/
+.breadcrumb{
+    background-color: transparent;
+    border: 0;
+    border-radius:0;
+}
+
+.intro_cours h3{margin-top: 0;}
+
+.chapitre_cours{background-color: #0b83a5; margin-bottom: 15px; color: white;}
+.chapitre_cours li a{color: white;}
+
+/*profil*/
+#nav_profil{
+    list-style: none;
+}
+#nav_profil li a button{text-shadow: 1px 1px 1px #333;}
+#myTabContent{margin-top: 40px;}
+
+
+#myTabContent .col-lg-3 .col-xs-12{padding:0;border: 2px solid #e3e3e3; 
+    -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);}
+.bloc_top{background-color: #024965;height: 175px;font-size: 2em;text-align: center;padding-top: 20%;color: white;transition: all .4s ease;}
+.bloc_bottom{background-color: white;height: 175px;font-size: 2em;text-align: center;padding-top: 20%;}
+
+#myTabContent .col-xs-12:hover .bloc_top{background-color: #005a7f;
+    transition: all .4s ease;}
+
+#myTabContent .col-lg-3 .col-xs-12 .matiere{font-size: 16px;float: left;position: absolute;bottom: 0;padding-left:15px;font-weight: bold;color: #c8c8c8;}
+#myTabContent .col-lg-3 .col-xs-12 .type{font-size: 16px;float: right;padding-right: 10px;padding-top: 30px;padding-bottom: 0;font-weight: bold;color: #c8c8c8;}

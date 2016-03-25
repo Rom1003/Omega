@@ -65,6 +65,12 @@ class Cours
 
 
     /**
+     * @ORM\OneToMany(targetEntity="CoursBundle\Entity\Chapitres", mappedBy="chapitres")
+     */
+    protected $chapitres;
+
+
+    /**
      * Get id
      *
      * @return integer
@@ -189,4 +195,67 @@ class Cours
         return $this->affCours;
     }
 
+
+    /**
+     * Set imageCours
+     *
+     * @param string $imageCours
+     * @return Cours
+     */
+    public function setImageCours($imageCours)
+    {
+        $this->imageCours = $imageCours;
+
+        return $this;
+    }
+
+    /**
+     * Get imageCours
+     *
+     * @return string 
+     */
+    public function getImageCours()
+    {
+        return $this->imageCours;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->chapitres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add chapitres
+     *
+     * @param \CoursBundle\Entity\Chapitres $chapitres
+     * @return Cours
+     */
+    public function addChapitre(\CoursBundle\Entity\Chapitres $chapitres)
+    {
+        $this->chapitres[] = $chapitres;
+
+        return $this;
+    }
+
+    /**
+     * Remove chapitres
+     *
+     * @param \CoursBundle\Entity\Chapitres $chapitres
+     */
+    public function removeChapitre(\CoursBundle\Entity\Chapitres $chapitres)
+    {
+        $this->chapitres->removeElement($chapitres);
+    }
+
+    /**
+     * Get chapitres
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChapitres()
+    {
+        return $this->chapitres;
+    }
 }

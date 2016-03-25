@@ -105,9 +105,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // cours_liste
-        if ($pathinfo === '/cours') {
-            return array (  '_controller' => 'CoursBundle\\Controller\\DefaultController::indexAction',  '_route' => 'cours_liste',);
+        if (0 === strpos($pathinfo, '/cours')) {
+            // cours_liste
+            if ($pathinfo === '/cours') {
+                return array (  '_controller' => 'CoursBundle\\Controller\\DefaultController::indexAction',  '_route' => 'cours_liste',);
+            }
+
+            // cours_chapitres
+            if (preg_match('#^/cours/(?P<idCours>\\d+)/(?P<order>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cours_chapitres')), array (  '_controller' => 'CoursBundle\\Controller\\CoursController::chapitresAction',));
+            }
+
+            // addcours
+            if ($pathinfo === '/cours/add') {
+                return array (  '_controller' => 'CoursBundle\\Controller\\CoursController::addAction',  '_route' => 'addcours',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/log')) {

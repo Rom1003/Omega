@@ -1,0 +1,63 @@
+<body>{{ form_start(form) }}
+<div class="well">
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.intituleCours, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.intituleCours) }}
+
+        <div class="col-sm-4">
+            {# Génération de l'input. #}
+            {{ form_widget(form.intituleCours, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    {# Idem pour un autre champ. #}
+    <div class="form-group">
+        {{ form_label(form.introCours, "Contenu de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.intituleCours) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.introCours, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    {# Idem pour un autre champ. #}
+    <div class="form-group">
+        {{ form_label(form.datefCours, "Date de fin", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.datefCours) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.datefCours, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    {# Idem pour un autre champ. #}
+    <div class="form-group">
+        {{ form_label(form.affCours, "Cocher pour cacher le cours", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_errors(form.affCours) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.affCours, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+
+    {# Génération du label + error + widget pour un champ #}
+    {{ form_row(form.datefCours) }}
+
+
+    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+    {{ form_widget(form.Sauvegarder, {'attr': {'class': 'btn btn-primary'}}) }}
+
+    {# Génération automatique des champs pas encore écrits.
+       Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+       et tous les champs cachés (type « hidden »). #}
+    {{ form_rest(form) }}
+
+
+    {{ form_end(form) }}
+    </div>
+</body>

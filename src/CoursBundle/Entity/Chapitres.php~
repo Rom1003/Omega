@@ -31,19 +31,21 @@ class Chapitres
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu_chapitres", type="text")
-     */
-    private $contenuChapitres;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="video_chapitres", type="string", length=255)
      */
     private $videoChapitres;
 
     /**
-    * @ORM\ManyToOne(targetEntity="CoursBundle\Entity\Cours")
+     * @var integer
+     *
+     * @ORM\Column(name="order", type="integer")
+     */
+    private $order;
+
+
+    /**
+    * @ORM\ManyToOne(targetEntity="CoursBundle\Entity\Cours", inversedBy="cours")
+    * @ORM\JoinColumn(name="cours_id", referencedColumnName="id")
     */
     protected $cours;
 
@@ -81,29 +83,6 @@ class Chapitres
     }
 
     /**
-     * Set contenuChapitres
-     *
-     * @param string $contenuChapitres
-     * @return Chapitres
-     */
-    public function setContenuChapitres($contenuChapitres)
-    {
-        $this->contenuChapitres = $contenuChapitres;
-
-        return $this;
-    }
-
-    /**
-     * Get contenuChapitres
-     *
-     * @return string 
-     */
-    public function getContenuChapitres()
-    {
-        return $this->contenuChapitres;
-    }
-
-    /**
      * Set videoChapitres
      *
      * @param string $videoChapitres
@@ -124,5 +103,51 @@ class Chapitres
     public function getVideoChapitres()
     {
         return $this->videoChapitres;
+    }
+
+    /**
+     * Set cours
+     *
+     * @param \CoursBundle\Entity\Cours $cours
+     * @return Chapitres
+     */
+    public function setCours(\CoursBundle\Entity\Cours $cours = null)
+    {
+        $this->cours = $cours;
+
+        return $this;
+    }
+
+    /**
+     * Get cours
+     *
+     * @return \CoursBundle\Entity\Cours 
+     */
+    public function getCours()
+    {
+        return $this->cours;
+    }
+
+    /**
+     * Set order
+     *
+     * @param integer $order
+     * @return Chapitres
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return integer 
+     */
+    public function getOrder()
+    {
+        return $this->order;
     }
 }

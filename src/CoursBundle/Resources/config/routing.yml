@@ -2,3 +2,14 @@ cours_liste:
     path:     /cours
     defaults: { _controller: CoursBundle:Default:index }
 
+cours_chapitres:
+    path:     /cours/{idCours}/{order}
+    defaults: { _controller: CoursBundle:Cours:chapitres }
+    requirements:
+        idCours:  \d+
+        order: \d+
+
+addcours:
+    path:     /cours/add
+    defaults: { _controller: CoursBundle:Cours:add }
+

@@ -1,0 +1,59 @@
+{% extends 'siteBundle::base.html.twig' %}
+
+{% block contenu %}
+<h2>{{ cours.intitulecours }}</h2>
+<div class="col-lg-8">
+	<ol class="breadcrumb">
+	  <li><a href="#">Cours</a></li>
+	  <li><a href="#">PHP</a></li>
+	  <li class="active">Chapitre 1</li>
+	</ol>
+</div>
+<div class="col-lg-4" id="date">
+	<p><b>Publié le: {{ cours.datedcours|date('d M Y') }} / Prendra fin le: {{ cours.datefcours|date('d M Y') }}</b></p>
+</div>
+
+<div class="col-lg-5 chapitre">
+
+	{% for listechapitre in listechapitres %}
+<div class="col-lg-12 chapitre_cours">
+	<a style="color: white" href="{{ listechapitre.order }}"><h4><b>{{ listechapitre.titrechapitres }}</b></h4></a>
+	{% for listesouschapitre in listesouschapitres if listesouschapitre.chapitres.id==listechapitre.id %}
+		<h4><a style="color: white">{{ listesouschapitre.titre|capitalize }}</a></h4>
+		{% endfor %}
+</div>
+	{% endfor %}
+
+</div>
+<div class="col-lg-7 intro_cours">
+
+    {% if chapitre.videochapitres is not empty %}
+			<p>{{ chapitre.videochapitres }}</p>
+    {% else %}
+		<h3>Introduction</h3>
+		<p>{{ cours.introcours }}</p>
+	{% endif %}
+
+</div>
+
+	<div class="col-lg-12 text_cours">
+        {% if souschapitres is defined %}
+		<h2>{{ chapitre.titrechapitres }}</h2>
+		{% for souschapitre in souschapitres %}
+		<h3>{{ souschapitre.titre }}</h3>
+			<p>{{ souschapitre.contenu }}</p>
+		{% endfor %}
+        {% endif %}
+	</div>
+
+
+
+
+	{#{% for chapitre in chapitres %}
+<div class="col-lg-12 text_cours">
+	<h2>{{ chapitre.titrechapitres }}</h2>
+
+</div>
+{% endfor %}
+#}
+{% endblock contenu %}
