@@ -126,4 +126,27 @@ class SousChapitres
     {
         return $this->chapitres;
     }
+
+    /**
+     * Set order
+     *
+     * @param integer $order
+     * @return SousChapitres
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return integer 
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
 }

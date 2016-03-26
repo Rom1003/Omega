@@ -3,12 +3,16 @@
 namespace CoursBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Cours
  *
  * @ORM\Table(name="cours")
  * @ORM\Entity(repositoryClass="CoursBundle\Repository\CoursRepository")
+ * @Vich\Uploadable
  */
 class Cours
 {
@@ -38,36 +42,115 @@ class Cours
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dated_cours", type="date")
+     * @ORM\Column(name="dated_cours", type="datetime")
      */
     private $datedCours;
 
     /**
      * @var \DateTime
-     *
+     *   @Assert\GreaterThan("today")
      * @ORM\Column(name="datef_cours", type="date")
      */
     private $datefCours;
 
     /**
      * @var bool
-     *
      * @ORM\Column(name="aff_cours", type="boolean")
      */
-    private $affCours;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_cours", type="string", length=255)
-     */
-    private $imageCours;
+    private $affCours;
 
 
     /**
      * @ORM\OneToMany(targetEntity="CoursBundle\Entity\Chapitres", mappedBy="chapitres")
      */
     protected $chapitres;
+
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="cours_image", fileNameProperty="imageName", nullable=true)
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * 
+     * @var string
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the  update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     *
+     * @return Cours
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if ($image) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param string $imageName
+     *
+     * @return Cours
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+
+
+
+
+
+
+
+
+
 
 
     /**
@@ -197,28 +280,6 @@ class Cours
 
 
     /**
-     * Set imageCours
-     *
-     * @param string $imageCours
-     * @return Cours
-     */
-    public function setImageCours($imageCours)
-    {
-        $this->imageCours = $imageCours;
-
-        return $this;
-    }
-
-    /**
-     * Get imageCours
-     *
-     * @return string 
-     */
-    public function getImageCours()
-    {
-        return $this->imageCours;
-    }
-    /**
      * Constructor
      */
     public function __construct()
@@ -257,5 +318,28 @@ class Cours
     public function getChapitres()
     {
         return $this->chapitres;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Cours
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

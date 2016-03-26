@@ -17,8 +17,8 @@ class CoursController extends Controller
             ->add('introCours', 'textarea')
             ->add('datefCours', 'date')
             ->add('affCours','checkbox', array('required' => false))
-            ->add('imageCours','file')
-            ->add('Sauvegarder', 'submit')
+            ->add('imageFile','file', array('required' => false))
+            ->add('Publier', 'submit')
             ->getForm();
         $form->handleRequest($request);
         if($form->isValid()){

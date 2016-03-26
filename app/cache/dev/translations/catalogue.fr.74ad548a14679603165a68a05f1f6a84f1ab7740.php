@@ -182,6 +182,11 @@ L\'équipe.
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Vérification',
   ),
+  'VichUploaderBundle' => 
+  array (
+    'download' => 'Télécharger',
+    'form.label.delete' => 'Supprimer ?',
+  ),
 ));
 
 

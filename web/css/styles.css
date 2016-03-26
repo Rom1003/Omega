@@ -317,6 +317,9 @@ hr {
  #show{
         display: none;
     }
+.none{
+        display: none;
+    }
 
 @media(max-width:1200px) {
     #contenu {
@@ -358,6 +361,11 @@ hr {
         display: inline;
     }
     #show{
+        display: inline;
+    }
+    .none{
+        font-size: 1em;
+        font-weight: bold;
         display: inline;
     }
 }
@@ -440,8 +448,7 @@ display: none;
 
 
 /* filtre */
-
-/*#filtre {
+#filtre {
     z-index: 100;
     padding: 0;
 }
@@ -471,6 +478,11 @@ width: 100%;}
     background-color: #0682a2;
     transition: 0.5s;}
 
+/*.nav-pills li a:hover .caret, .nav-pills li a:active .caret,.nav-pills li a:focus .caret*/
+#filtre #menu li a:hover .caret, #filtre #menu li a:focus .caret{
+    transition: all 0.8s;
+    transform: rotate(0deg);}
+
 #filtre #menu li a{text-align: left;
 font-weight: bold;
 font-size: 16px;
@@ -485,40 +497,41 @@ vertical-align: -webkit-baseline-middle;}
 #filtre #menu .col-sm-6{padding: 0;}
 #filtre .col-sm-2{padding: 0;}
 
-#menu li a { 
+
+#filtre #menu li a { 
     display:block; 
     color: #fff; 
     text-decoration:none;
 }
-#menu > li,
-#menu > li li {
+#filtre #menu > li,
+#filtre #menu > li li {
     position: relative;
     display:inline-block;
     padding: 6px 15px;
     background-color: #096f89;
     transition: 0.5s;
 }
-#menu > li li { background: transparent none; }
-#menu > li li a { color: #444;
+#filtre #menu > li li { background: transparent none; }
+#filtre #menu > li li a { color: #444;
 }
-#menu > li li:hover {  }
-#menu > li:first-child {
+#filtre #menu > li li:hover {  }
+#filtre #menu > li:first-child {
     border-right: 1px solid #777;
 }
-#menu > li + li {
+#filtre #menu > li + li {
     border-left: 1px solid #aaa;
     border-right: 1px solid #777;
 }
-#menu > li:last-child {
+#filtre #menu > li:last-child {
     border-right: 0;
     border-left: 1px solid #aaa;
 }
-#menu > li:hover {
+#filtre #menu > li:hover {
     background-color: #0682a2;
     transition: 0.5s;
 }
-
-#menu ul {
+#filtre #menu ul {
+    border-radius: 0;
     position: absolute;
     top: 2.3em; left: 0;
     max-height:0em; 
@@ -526,10 +539,10 @@ vertical-align: -webkit-baseline-middle;}
     background-color: rgba(221, 221, 221, 0.95);
     overflow: hidden;
     transition: 1s max-height 0.3s;
-}*/
-
-#filtre, #filtre .col-sm-2{padding: 0;}
-#filtre .col-sm-2 ul li{padding: 0;}
+}
+#filtre #menu > li ul {
+    max-height: 900px;
+}   
 
 /*cours*/
 
@@ -580,3 +593,17 @@ vertical-align: -webkit-baseline-middle;}
 
 #myTabContent .col-lg-3 .col-xs-12 .matiere{font-size: 16px;float: left;position: absolute;bottom: 0;padding-left:15px;font-weight: bold;color: #c8c8c8;}
 #myTabContent .col-lg-3 .col-xs-12 .type{font-size: 16px;float: right;padding-right: 10px;padding-top: 30px;padding-bottom: 0;font-weight: bold;color: #c8c8c8;}
+
+
+/*ajout cours*/
+
+#ajout_cours .form-control{
+    border: 1px solid #c1c1c1;
+    border-radius: 0px;
+}
+#ajout_cours label{margin-top: 10px;}
+
+#ajout_cours .form-control{
+    border: 1px solid #c1c1c1;
+    border-radius: 0px;
+}

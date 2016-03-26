@@ -76,3 +76,15 @@ swiftmailer:
 services:
     fos_user.doctrine_registry:
         alias: doctrine
+
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        cours_image:
+            uri_prefix:         /images/cours
+            upload_destination: %kernel.root_dir%/../web/images/cours
+
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
