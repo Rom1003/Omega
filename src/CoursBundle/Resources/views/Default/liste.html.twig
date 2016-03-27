@@ -1,4 +1,5 @@
 {% extends 'siteBundle::base.html.twig' %}
+{% block title %}LE COIN COURS - COURS{% endblock %}
 {% block filtre %}
 <div class="col-lg-10 col-sm-9" id="filtre">
                     <div class="col-sm-2">
@@ -9,37 +10,37 @@
                                     <ul class="dropdown-menu">
                                         <form action="">
                                         <div class="col-lg-12 col-md-6 col-sm-3">
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
-                                            <li><input type="checkbox" />cour...</li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
+                                            <li><label><input type="checkbox" />cour...</label></li>
                                         <div>
                                                 <br>
                                                 <p>Evaluation</p>
-                                                <li><input type="checkbox" />Quizz</li>
-                                                <li><input type="checkbox" />Exercices</li>
-                                                <li><input type="checkbox" />Exercices corrigés</li>
+                                                <li><label><input type="checkbox" />Quizz</label></li>
+                                                <li><label><input type="checkbox" />Exercices</label></li>
+                                                <li><label><input type="checkbox" />Exercices corrigés</label></li>
                                                 <br>
                                                 <p>Semestres</p>
                                                 <div class="col-sm-6">
-                                                    <li><input type="checkbox" />S1</li>
-                                                    <li><input type="checkbox" />S2</li>
-                                                    <li><input type="checkbox" />S3</li>
-                                                    <li><input type="checkbox" />S4</li>
+                                                    <li><label><input type="checkbox" />S1</label></li>
+                                                    <li><label><input type="checkbox" />S2</label></li>
+                                                    <li><label><input type="checkbox" />S3</label></li>
+                                                    <li><label><input type="checkbox" />S4</label></li>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <li><input type="checkbox" />S1D</li>
-                                                    <li><input type="checkbox" />S2D</li>
-                                                    <li><input type="checkbox" />S3D</li>
-                                                    <li><input type="checkbox" />S4D</li>
+                                                    <li><label><input type="checkbox" />S1D</label></li>
+                                                    <li><label><input type="checkbox" />S2D</label></li>
+                                                    <li><label><input type="checkbox" />S3D</label></li>
+                                                    <li><label><input type="checkbox" />S4D</label></li>
                                                 </div>
                                     </form>
                                     </ul>
@@ -59,10 +60,10 @@
 	        <div class="col-lg-8">
 	        <h2><a href="{{ path('cours_chapitres', {'idCours': cour.id, 'order': '1'})}}">{{ cour.intitulecours }}</a></h2>
 	        <p><b>Publié le: {{ cour.datedcours|date('d M Y') }} / Prendra fin le: {{ cour.datefcours|date('d M Y') }}</b></p>
-	        <p>{{ cour.introcours }}</p>
+	         <p>{{ cour.introcours | striptags | slice(0,800) }}{% if cour.introcours|length>400 %}[...]{% endif %}</p>
 	    	</div>
 	        <div class="col-lg-4">
-                <img src="{{asset('images/cours/')}}{% if cour.imagename is not empty %}{{ cour.imagename }}{% else %}noimage.png{% endif %}" class="img-responsive center-block">
+                <img src="{{asset('images/cours/')}}{% if cour.imagename is not empty %}{{ cour.imagename }}{% else %}noimage.png{% endif %}" class="img-responsive center-block" alt="image {{cour.intitulecours}}">
 	        </div>
     </div>
 {% endif %}

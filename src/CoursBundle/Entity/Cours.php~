@@ -66,11 +66,18 @@ class Cours
      */
     protected $chapitres;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CoursBundle\Entity\Modules", inversedBy="modules")
+     */
+    protected $modules;
+
+
+
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="cours_image", fileNameProperty="imageName", nullable=true)
+     * @Vich\UploadableField(mapping="cours_image", fileNameProperty="imageName")
      *
      * @var File
      */
@@ -78,7 +85,7 @@ class Cours
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * 
+     *
      * @var string
      */
     private $imageName;
@@ -341,5 +348,28 @@ class Cours
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set modules
+     *
+     * @param \CoursBundle\Entity\Modules $modules
+     * @return Cours
+     */
+    public function setModules(\CoursBundle\Entity\Modules $modules = null)
+    {
+        $this->modules = $modules;
+
+        return $this;
+    }
+
+    /**
+     * Get modules
+     *
+     * @return \CoursBundle\Entity\Modules 
+     */
+    public function getModules()
+    {
+        return $this->modules;
     }
 }

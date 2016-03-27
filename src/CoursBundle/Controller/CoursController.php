@@ -4,6 +4,7 @@ namespace CoursBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use CoursBundle\Entity\Cours;
+use CoursBundle\Form\coursType;
 use Symfony\Component\HttpFoundation\Request;
 
 class CoursController extends Controller
@@ -12,20 +13,14 @@ class CoursController extends Controller
     {
         $cours = new Cours();
         $cours->setDatedCours(new \Datetime());
-        $form = $this->createFormBuilder($cours)
-            ->add('intituleCours', 'text')
-            ->add('introCours', 'textarea')
-            ->add('datefCours', 'date')
-            ->add('affCours','checkbox', array('required' => false))
-            ->add('imageFile','file', array('required' => false))
-            ->add('Publier', 'submit')
-            ->getForm();
+        $form=$this->createForm(new coursType, $cours);
+
         $form->handleRequest($request);
         if($form->isValid()){
             $em = $this->getDoctrine()->getManager();
             $em->persist($cours);
             $em->flush();
-
+        return $this->redirectToRoute('cours_liste');
         }
         return $this->render('CoursBundle:Default:addcours.html.twig', array('form' => $form->createView(),));
     }

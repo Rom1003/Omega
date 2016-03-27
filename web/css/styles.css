@@ -95,6 +95,8 @@ hr {
 .chercher {
     border: 0;
 }
+#nav-header .col-lg-10 label, #nav-header .col-lg-10 label span{display: none;}
+#show .input-group label, #show .input-group label span{display: none;}
 
 .form-control {
     border: 0px;
@@ -524,7 +526,7 @@ vertical-align: -webkit-baseline-middle;}
 }
 #filtre #menu > li:last-child {
     border-right: 0;
-    border-left: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
 }
 #filtre #menu > li:hover {
     background-color: #0682a2;
@@ -556,7 +558,7 @@ vertical-align: -webkit-baseline-middle;}
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 }
 .cours h2{color: #0a6d8a;}
-.cours .col-lg-4 img{width: 50%;}
+.cours .col-lg-4 img{width: auto;height: 260px;}
 
 /*date*/
 #date p{float: right;}

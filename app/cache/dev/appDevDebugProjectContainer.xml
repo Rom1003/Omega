@@ -2206,7 +2206,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56f6d75daed726.88997612</argument>
+            <argument>56f84626657c13.29533768</argument>
           </service>
         </argument>
       </argument>
@@ -2511,7 +2511,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>56f6d75daed726.88997612</argument>
+            <argument>56f84626657c13.29533768</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3033,6 +3033,7 @@
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
             <argument type="collection">
+              <argument key="siteBundle">siteBundle\Entity</argument>
               <argument key="UserBundle">User\UserBundle\Entity</argument>
               <argument key="CoursBundle">CoursBundle\Entity</argument>
             </argument>
@@ -3054,6 +3055,20 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
+                        <argument>/var/www/html/Omega/src/siteBundle/Entity</argument>
+                        <argument>/var/www/html/Omega/src/User/UserBundle/Entity</argument>
+                        <argument>/var/www/html/Omega/src/CoursBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>siteBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/var/www/html/Omega/src/siteBundle/Entity</argument>
                         <argument>/var/www/html/Omega/src/User/UserBundle/Entity</argument>
                         <argument>/var/www/html/Omega/src/CoursBundle/Entity</argument>
                       </argument>
@@ -3066,6 +3081,7 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
+                        <argument>/var/www/html/Omega/src/siteBundle/Entity</argument>
                         <argument>/var/www/html/Omega/src/User/UserBundle/Entity</argument>
                         <argument>/var/www/html/Omega/src/CoursBundle/Entity</argument>
                       </argument>

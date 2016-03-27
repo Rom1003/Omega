@@ -1,13 +1,24 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="fr">
 
 <head>
     <meta charset="utf8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" type="image/png" href="{{asset('images/favicon.ico')}}" />
+    <link rel="canonical" href="http://54.93.184.159/Omega/web/app_dev.php/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>{% block title %}MMI NETWORK - ACCUEIL{% endblock %}</title>
+    <meta name="author" content="MMI" />
+    <meta name="keywords" content="mmi, coin cours, cours, réseaux, développeurs, matières, graphismes, audiovisuel"/>
+    <meta name="description" content="Un site de cours en ligne dédiés aux étudiants et professeurs de MMI à l'iut de Troyes ">
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta property="og:title" content="LE COIN COURS - MMI"/>
+    <meta property="og:type" content="Site e-learning"/>
+    <meta property="og:url" content="http://www.maxime-loete.fr/"/>
+    <meta property="og:image" content="http://www.maxime-loete.fr/images/logo_mmi.png"/>
+    <title>{% block title %}LE COIN COURS - ACCUEIL{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/styles.css')}}">
@@ -35,18 +46,20 @@
                             <ul class="nav nav-pills nav-stacked">
                                 <li id="show">
                                     <div class="input-group">
-                                      <input type="text" class="form-control" placeholder="Recherche...">
+                                    
+                                      <label><span>barre de recherche</span></label>
+                                      <input type="text" class="form-control" title="Tapez votre recherche" placeholder="Rechercher...">
                                       <span class="input-group-btn">
                                         <button class="btn btn-default" type="button">Go!</button>
                                       </span>
                                     </div>
                                     <hr>
                                 </li>
-                                <li class="active"><a href="{{ path('site_homepage') }}">ACCUEIL<span class="sr-only">(current)</span></a></li>
+                                <li class="active"><a href="{{ path('site_homepage') }}" title="Aller vers l'accueil">ACCUEIL<span class="sr-only">(current)</span></a></li>
                             </ul>
                              <ul class="nav nav-pills nav-stacked">
                                 <li class="dropdown">
-                                    <a href="{{ path('cours_liste') }}">COURS</a>
+                                    <a href="{{ path('cours_liste') }}" title="Aller vers la page des cours">COURS</a>
                                 </li>          
                             </ul>
                             <ul class="nav nav-pills nav-stacked">
@@ -63,8 +76,8 @@
                             <ul class="nav nav-pills nav-stacked">
                                 <li id="hide">
                                     <hr>
-                                    <a href="{{ path('fos_user_profile_show') }}">Profil</a>
-                                    <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                                    <a href="{{ path('fos_user_profile_show') }}" title="Consulter mon profil">Profil</a>
+                                    <a href="{{ path('fos_user_security_logout') }}" title="Se déconnecter">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
                                 </li>    
                             </ul>
                         </div>
@@ -77,14 +90,14 @@
                                 <div class="bouton"><img src="{{asset('images/search.svg')}}" alt="un logo de recherche en forme de loupe"></div>
                             </div>
                             <div class="col-lg-10 col-sm-10 col-xs-10">
-                                <input type="search" class="input-sm form-control chercher" placeholder="Rechercher un cour, une vidéo, un exercice...">
+                                <label><span>barre de recherche</span></label>
+                                <input type="search" class="input-sm form-control chercher" title="Tapez votre recherche" placeholder="Rechercher un cour, une vidéo, un exercice...">
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
                             <div class="col-md-8 col-sm-6 col-xs-6 reseau">
-                                <a href="#"><img src="{{asset('images/fb1.png')}}" alt="icône du réseau social facebook"></a>
-                                <a href="#"><img src="{{asset('images/tw1.png')}}" alt="icône du réseau social twitter"></a>
-                                <a href="#"><img height="70px" src="{{asset('images/logo_mmi.png')}}" alt="icône de la formation MMI"></a>
+                                <a href="{{ path('site_homepage') }}"><img src="{{asset('images/logo_cc.png')}}" alt="logo du site le coin cours"></a>
+                                <a href="http://intranet.iut-troyes.univ-reims.fr/" onclick="window.open(this.href);return false"><img height="70px" src="{{asset('images/logo_mmi.png')}}" alt="icône de la formation MMI"></a>
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-6 connexion">
                                 <a href="{{ path('fos_user_profile_show') }}"><img src="{{asset('images/user.svg')}}" alt="icône du profil"></a>
@@ -107,12 +120,11 @@
                 <footer>
                     <div class="col-lg-10 col-sm-9" id="footer">
                         <div class="col-lg-2 col-xs-4 liens">
-                            <a href="#">Cours</a>
-                            <a href="#">Evaluations</a>
+                            <a href="{{ path('cours_liste') }}" title="Aller vers la page des cours"><i>Cours</i></a>
                         </div>
                         <div class="col-lg-2 col-xs-6 reseau2">
-                            <a href="#"><img src="{{asset('images/fb1.png')}}" alt=""></a>
-                            <a href="#"><img src="{{asset('images/tw1.png')}}" alt=""></a>
+                            <a href="#"><img src="{{asset('images/fb1.png')}}" alt="logo du réseau social facebook"></a>
+                            <a href="#"><img src="{{asset('images/tw1.png')}}" alt="logo du réseau social twitter"></a>
                         </div>
                     </div>
                 </footer>
